@@ -70,6 +70,19 @@ public class MyoCmds {
         };
     }
 
+    public static byte[] buildColorCmd(Color logo, Color bar) {
+        return new byte[]{
+                0x19, // vibrate command
+                8, // payload size
+                logo.getRed(),
+                logo.getGreen(),
+                logo.getBlue(),
+                bar.getRed(),
+                bar.getGreen(),
+                bar.getBlue()
+        };
+    }
+
     public enum SleepMode {
         /**
          * Go to sleep/standby after a few seconds of inactivity.

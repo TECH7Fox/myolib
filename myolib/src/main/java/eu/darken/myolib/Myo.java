@@ -291,6 +291,19 @@ public class Myo extends BaseMyo {
         submit(writeMsg);
     }
 
+    public void writeLeds(Color logo, Color bar) {
+        byte[] cmd = MyoCmds.buildColorCmd(logo, bar);
+        MyoMsg writeMsg = new WriteMsg(Control.COMMAND, cmd, new MyoMsg.Callback() {
+            @Override
+            public void onResult(MyoMsg msg) {
+                if  (msg.getState() == MyoMsg.State.SUCCESS)
+                    Logy.d(TAG, "Changed colors!");
+                if (callback != null)
+                    callback.onCommandDone(Myo.this, msg);
+            }
+        }
+    }
+
     /**
      * @param unlockType LOCK, TIMED or HOLD
      * @param callback   optional
