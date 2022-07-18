@@ -7,6 +7,7 @@ package eu.darken.myolib;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 
 import eu.darken.myolib.msgs.MyoMsg;
@@ -291,17 +292,18 @@ public class Myo extends BaseMyo {
         submit(writeMsg);
     }
 
-    public void writeLeds(Color logo, Color bar) {
-        byte[] cmd = MyoCmds.buildColorCmd(logo, bar);
+    public void writeLEDs(Color logo, Color bar, @Nullable final MyoCommandCallback callback) {
+        byte[] cmd = MyoCmds.buildLEDsCmd(logo, bar);
         MyoMsg writeMsg = new WriteMsg(Control.COMMAND, cmd, new MyoMsg.Callback() {
             @Override
             public void onResult(MyoMsg msg) {
                 if  (msg.getState() == MyoMsg.State.SUCCESS)
-                    Logy.d(TAG, "Changed colors!");
+                    Logy.d(TAG, "Changed LEDs!");
                 if (callback != null)
                     callback.onCommandDone(Myo.this, msg);
             }
-        }
+        });
+        submit(writeMsg);
     }
 
     /**

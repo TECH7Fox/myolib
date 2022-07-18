@@ -1,5 +1,4 @@
 plugins {
-    id "com.github.dcendents.android-maven" version "2.0"
     id "com.jfrog.bintray" version "1.8.0"
     id "jacoco"
     id "com.github.kt3k.coveralls" version "2.5.0-x"
@@ -13,12 +12,12 @@ def myVersionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
 def myVersionName = "${versionMajor}.${versionMinor}.${versionPatch}"
 
 android {
-    compileSdkVersion 27
+    compileSdk 27
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-        minSdkVersion 18
-        targetSdkVersion 27
+        minSdk 27
+        targetSdk 27
         versionCode myVersionCode
         versionName myVersionName
     }
@@ -50,15 +49,15 @@ task jacocoTestReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
         xml.enabled = true
         html.enabled = true
     }
-    classDirectories = fileTree(
+    getClassDirectories().setFrom(fileTree(
             dir: './build/intermediates/classes/debug',
             excludes: ['eu/darken/R*.class',
                        '**/BuildConfig.class'
-            ])
-    sourceDirectories = files([
+            ]))
+    getSourceDirectories().setFrom(files([
             'src/main/java'
-    ])
-    executionData = files('build/jacoco/testDebugUnitTest.exec')
+    ]))
+    getExecutionData().setFrom(files('build/jacoco/testDebugUnitTest.exec'))
 }
 
 coveralls {

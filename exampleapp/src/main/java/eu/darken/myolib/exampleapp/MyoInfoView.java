@@ -9,6 +9,7 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
@@ -80,7 +81,6 @@ public class MyoInfoView extends RelativeLayout implements
         super.onFinishInflate();
     }
 
-
     @Override
     protected void onAttachedToWindow() {
         if (isInEditMode())
@@ -113,12 +113,11 @@ public class MyoInfoView extends RelativeLayout implements
         mMotionProcessor.addListener(this);
         mMyo.addProcessor(mMotionProcessor);
 
-        mMyo.writeLeds(new Color(0, 255, 0), new Color(0, 255, 0))
-
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 mMyo.writeVibrate(MyoCmds.VibrateType.SHORT, null);
+                mMyo.writeLEDs(Color.valueOf(0, 128, 128), Color.valueOf(0, 0, 255), null);
             }
         });
         mBatteryLevel.setOnLongClickListener(new OnLongClickListener() {

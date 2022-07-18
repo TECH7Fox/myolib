@@ -5,6 +5,8 @@
  */
 package eu.darken.myolib;
 
+import android.graphics.Color;
+
 /**
  * A helper class to create the byte[] payload for sending instructions to a Myo
  */
@@ -70,16 +72,16 @@ public class MyoCmds {
         };
     }
 
-    public static byte[] buildColorCmd(Color logo, Color bar) {
+    public static byte[] buildLEDsCmd(Color logo, Color bar) {
         return new byte[]{
-                0x19, // vibrate command
-                8, // payload size
-                logo.getRed(),
-                logo.getGreen(),
-                logo.getBlue(),
-                bar.getRed(),
-                bar.getGreen(),
-                bar.getBlue()
+                0x06, // set LEDs command
+                6, // payload size
+                (byte) logo.red(),
+                (byte) logo.green(),
+                (byte) logo.blue(),
+                (byte) bar.red(),
+                (byte) bar.green(),
+                (byte) bar.blue()
         };
     }
 
