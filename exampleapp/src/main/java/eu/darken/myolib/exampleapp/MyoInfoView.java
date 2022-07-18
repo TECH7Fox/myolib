@@ -112,6 +112,9 @@ public class MyoInfoView extends RelativeLayout implements
         mMotionProcessor = new MotionProcessor();
         mMotionProcessor.addListener(this);
         mMyo.addProcessor(mMotionProcessor);
+
+        mMyo.writeLeds(new Color(0, 255, 0), new Color(0, 255, 0))
+
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
