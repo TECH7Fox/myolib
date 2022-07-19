@@ -1,5 +1,5 @@
-# myolib
-![CI workflow](https://github.com/TECH7Fox/myolib/actions/workflows/gradle.yml/badge.svg)
+# myolink
+![CI workflow](https://github.com/TECH7Fox/myolink/actions/workflows/gradle.yml/badge.svg)
 
 
 This is an Android library to communicate with Myo devices.
@@ -12,7 +12,7 @@ If you are using this library, i would love mention your project here, feel free
 ## Setup
 Include this in your apps build.gradle file:
 ```java
-implementation 'com.tech7fox.myolib:myolib:0.0.6'
+implementation 'com.tech7fox.myolink:myolink:0.0.6'
 ```
 
 ## Examples
@@ -85,7 +85,7 @@ WriteMsg writeMsg = new WriteMsg(
 baseMyo.submit(writeMsg);
 ```
 ### Example app
-<img src="https://raw.githubusercontent.com/d4rken/myolib/master/exampleapp/exampleapp.png" height="500">
+<img src="https://raw.githubusercontent.com/d4rken/myolink/master/exampleapp/exampleapp.png" height="500">
 
 ## License
 This library is licensed under Apache 2.0, see [LICENSE](./LICENSE)
