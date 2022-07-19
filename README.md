@@ -90,7 +90,7 @@ WriteMsg writeMsg = new WriteMsg(
 baseMyo.submit(writeMsg);
 ```
 ### Example app
-<img src="https://raw.githubusercontent.com/d4rken/myolink/master/exampleapp/exampleapp.png" height="500">
+<img src="./exampleapp/exampleapp.png" height="500">
 
 ## License
 This library is licensed under Apache 2.0, see [LICENSE](./LICENSE)
