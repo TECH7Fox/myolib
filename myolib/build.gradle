@@ -4,6 +4,7 @@ plugins {
     id "com.github.kt3k.coveralls" version "2.5.0-x"
 }
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 def versionMajor = 0
 def versionMinor = 0
@@ -30,7 +31,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:support-annotations:27.1.0'
+    implementation 'com.android.support:support-annotations:28.0.0'
 }
 
 // https://stackoverflow.com/a/34572606/1251958
@@ -71,9 +72,17 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/TECH7Fox/myolib")
             credentials {
-                username = System.getenv("USERNAME")
-                password = System.getenv("TOKEN")
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
             }
+        }
+    }
+    publications {
+        bar(MavenPublication) {
+            groupId 'com.tech7fox' // Replace with group ID
+            artifactId 'myolib'
+            version myVersionName
+            artifact("$buildDir/outputs/aar/myolib-release.aar")
         }
     }
 }
