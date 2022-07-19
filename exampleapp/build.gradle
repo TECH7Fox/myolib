@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdk 27
-    buildToolsVersion "27.0.3"
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "com.tech7fox.myolib.exampleapp"
@@ -16,11 +16,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-}
-repositories {
-    maven {
-        url 'https://dl.bintray.com/darken/maven/'
     }
 }
 

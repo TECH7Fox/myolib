@@ -1,5 +1,5 @@
 plugins {
-    id "com.jfrog.bintray" version "1.8.0"
+    id "maven-publish"
     id "jacoco"
     id "com.github.kt3k.coveralls" version "2.5.0-x"
 }
@@ -13,7 +13,7 @@ def myVersionName = "${versionMajor}.${versionMinor}.${versionPatch}"
 
 android {
     compileSdk 27
-    buildToolsVersion "27.0.3"
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         minSdk 27
@@ -65,35 +65,15 @@ coveralls {
     sourceDirs = ['src/main/java']
 }
 
-def credentialsFile = new File(System.properties['user.home'], ".bintray/bintray.properties")
-ext {
-    if (credentialsFile.canRead()) {
-        Properties props = new Properties()
-        props.load(new FileInputStream(credentialsFile))
-        bintrayUser = props['bintray.user']
-        bintrayApiKey = props['bintray.apikey']
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/TECH7Fox/myolib")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
-    bintrayRepo = 'maven'
-    bintrayName = 'myolib'
-
-    publishedGroupId = 'com.tech7fox.myolib'
-    libraryName = 'Android Myo library by darken'
-    artifact = 'myolib'
-
-    libraryDescription = 'An open source Android library to communicate with Myo devices.'
-
-    siteUrl = 'https://github.com/d4rken/myolib'
-    gitUrl = 'https://github.com/d4rken/myolib.git'
-    issuesUrl = 'https://github.com/d4rken/myolib/issues'
-
-    libraryVersion = myVersionName
-
-    developerId = 'darken'
-    developerName = 'Matthias Urhahn'
-    developerEmail = 'darken@darken.eu'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
 }
-if (credentialsFile.canRead()) apply from: '../publish-to-bintray.gradle'
