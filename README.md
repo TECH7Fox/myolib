@@ -14,7 +14,7 @@ If you are using this library, i would love mention your project here, feel free
 ## Setup
 Include this in your apps build.gradle file:
 ```java
-implementation 'eu.darken.myolib:myolib:0.0.5'
+implementation 'com.tech7fox.myolib:myolib:0.0.5'
 ```
 
 ## Examples

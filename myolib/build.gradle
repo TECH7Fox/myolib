@@ -76,7 +76,7 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'myolib'
 
-    publishedGroupId = 'eu.darken.myolib'
+    publishedGroupId = 'com.tech7fox.myolib'
     libraryName = 'Android Myo library by darken'
     artifact = 'myolib'
 

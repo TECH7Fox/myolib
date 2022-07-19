@@ -5,7 +5,7 @@ android {
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-        applicationId "eu.darken.myolib.exampleapp"
+        applicationId "com.tech7fox.myolib.exampleapp"
         minSdk 27
         targetSdk 27
         versionCode 2
@@ -26,7 +26,7 @@ repositories {
 
 dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.0'
-//    compile 'eu.darken.myolib:myolib:0.0.2'
+//    compile 'com.tech7fox.myolib:myolib:0.0.2'
     // Change to use local library
     implementation project(':myolib')
 }
