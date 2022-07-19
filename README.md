@@ -1,6 +1,11 @@
 # myolink
 ![CI workflow](https://github.com/TECH7Fox/myolink/actions/workflows/gradle.yml/badge.svg)
 
+This is a slighly modified fork from [myolib](https://github.com/d4rken/myolib) by [d4rken](https://github.com/d4rken). 
+So far I only added a `writeLEDs` function and updated the SDK and some plugins. Check the commits to see the full changes.
+
+**Huge thank you to [d4rken](https://github.com/d4rken) for your work on the original library and letting us use it!**
+
 
 This is an Android library to communicate with Myo devices.
 
@@ -12,7 +17,7 @@ If you are using this library, i would love mention your project here, feel free
 ## Setup
 Include this in your apps build.gradle file:
 ```java
-implementation 'com.tech7fox.myolink:myolink:0.0.6'
+implementation 'com.tech7fox.myolink:myolink:0.0.7'
 ```
 
 ## Examples
