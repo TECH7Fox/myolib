@@ -1,7 +1,5 @@
 # myolib
-[ ![Download](https://api.bintray.com/packages/darken/maven/myolib/images/download.svg) ](https://bintray.com/darken/maven/myolib/_latestVersion)
-[![Coverage Status](https://coveralls.io/repos/github/d4rken/myolib/badge.svg)](https://coveralls.io/github/d4rken/myolib)
-[![Build Status](https://travis-ci.org/d4rken/myolib.svg?branch=master)](https://travis-ci.org/d4rken/myolib)
+![CI workflow](https://github.com/TECH7Fox/myolib/actions/workflows/gradle.yml/badge.svg)
 
 
 This is an Android library to communicate with Myo devices.
@@ -14,7 +12,7 @@ If you are using this library, i would love mention your project here, feel free
 ## Setup
 Include this in your apps build.gradle file:
 ```java
-implementation 'com.tech7fox.myolib:myolib:0.0.5'
+implementation 'com.tech7fox.myolib:myolib:0.0.6'
 ```
 
 ## Examples
@@ -90,7 +88,7 @@ baseMyo.submit(writeMsg);
 <img src="https://raw.githubusercontent.com/d4rken/myolib/master/exampleapp/exampleapp.png" height="500">
 
 ## License
-This library is licensed under Apache 2.0, see [LICENSE](https://github.com/d4rken/myolib/blob/master/LICENSE)
+This library is licensed under Apache 2.0, see [LICENSE](./LICENSE)
 
 If you use "Android Myo library by darken" for your publication, please cite the following publication:
  * Kutafina E, Laukamp D, Jonas SM. Wearable Sensors in Medical Education: Supporting Hand Hygiene Training with a Forearm EMG. Stud Health Technol Inform. 2015;211:286-91.
