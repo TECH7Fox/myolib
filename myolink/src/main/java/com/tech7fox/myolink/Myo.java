@@ -81,11 +81,11 @@ public class Myo extends BaseMyo {
     private String mDeviceName;
 
     /**
-     * Returns a devicename, call {@link #readDeviceName(ReadDeviceNameCallback)} to update it.<br>
+     * Returns the devicename, call {@link #readDeviceName(ReadDeviceNameCallback)} to update it.<br>
      * Is also updated on successfull {@link #writeDeviceName(String, MyoCommandCallback)} calls.
      */
     public String getDeviceName() {
-        if (mDeviceName.isEmpty()) return getBluetoothDevice().getName(); else return mDeviceName;
+        if (mDeviceName == null) return getBluetoothDevice().getName(); else return mDeviceName;
     }
 
     /**
